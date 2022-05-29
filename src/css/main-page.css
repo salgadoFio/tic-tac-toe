@@ -1,0 +1,26 @@
+.principal-page {
+    background-color: #282c34;
+    min-height: 100vh;
+}
+
+
+.button-size{
+    width: 100px;
+    height: 100px;
+}
+
+.shape{
+    font-size: 40px;
+}
+
+.row{
+    display: flex;
+}
+
+.moving-button{ 
+    background-color: transparent;
+}
+
+.button-border{
+   border-style: solid;
+}
