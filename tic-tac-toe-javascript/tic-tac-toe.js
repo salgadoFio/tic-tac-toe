@@ -46,8 +46,8 @@ async function setButtonLetter(buttonId) {
             if (!gameOver) {
                 setTimeout(() => {
                     currentButtonO.innerHTML = "O";
+                    win("O");
                 }, 500);
-                win("O");
             }else{
                 document.getElementById("restart").style.display = "block";
             }
@@ -159,7 +159,7 @@ function win(shape) {
 
 function whoWin(shape) {
     let buttons = Array.from(document.getElementsByTagName("button"));
-    let winnerButtons = buttons.filter((button) => button.innerHTML === shape).map(btn => { return btn.id });;
+    let winnerButtons = buttons.filter((button) => button.innerHTML === shape).map(btn => { return btn.id });
     let combination = winningCombinations.filter((win) => {
         return contains(winnerButtons, win);
     })
@@ -180,10 +180,12 @@ function restart(){
     gameOver = false;
     let buttons = Array.from(document.getElementsByTagName("button"));
     for(let i = 0; i < buttons.length; i++){
+        buttons[i].classList.remove("selectedButton");
         if(buttons[i].id !== "restart"){
             buttons[i].innerHTML = "";
         }else{
             buttons[i].style.display = 'none';
         }
     }
+
 }
